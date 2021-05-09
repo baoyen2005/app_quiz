@@ -7,21 +7,11 @@
     android:orientation="vertical"
     tools:context=".activity.ProfileActivity">
     <LinearLayout
-        android:background="@color/purple_200"
+        android:background="@drawable/quizback"
         android:orientation="vertical"
         android:id="@+id/profile_header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <ImageView
-
-            android:background= "@color/green"
-            android:layout_marginTop="30dp"
-            android:id="@+id/imageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:src="@drawable/profile" />
 
         <TextView
             android:layout_gravity="center"
@@ -33,6 +23,16 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:text="lsls" />
+
+        <ImageView
+
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@color/green"
+            android:src="@drawable/profile" />
     </LinearLayout>
 
     <Button
