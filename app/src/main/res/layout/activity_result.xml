@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+
+    android:layout_height="match_parent"
+    tools:context=".activity.ResultActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/grayist"
+            android:orientation="vertical"
+            android:gravity="center"
+
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <ImageView
+                android:id="@+id/tropy"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+
+                android:src= "@drawable/trophy" />
+           <LinearLayout
+               android:gravity="center"
+               android:orientation="horizontal"
+               android:layout_marginTop="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+
+               <TextView
+
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+
+                   android:textSize="20sp"
+                   android:textStyle="bold"
+                   android:padding="5dp"
+
+                   android:text="CONGRATULATIONS!"
+                   android:textColor="@color/red" />
+               <ImageView
+
+                   android:src="@drawable/congra"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"/>
+           </LinearLayout>
+            <TextView
+                android:textStyle="italic"
+                android:id="@+id/txtScore"
+                android:textSize="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:padding="5dp"
+
+                android:text="Your score: 20"
+                android:textColor="@color/purple_500" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtAnswer"
+
+
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+<!--nếu dùng scroll view với constraint layout làm con thì scroll view c phải xét cái thuuocj tính này : fillViewReport = true
+
+cái đấy để cho cái scroll view nó kéo ra hết màn hình điện thoại khi mà cái con của nó có chiều cao ít hơn
+-->
