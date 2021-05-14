@@ -3,27 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:fillViewport="true"
-
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".activity.ResultActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/grayist"
-            android:orientation="vertical"
             android:gravity="center"
-
-            app:layout_constraintTop_toTopOf="parent"
-
+            android:orientation="vertical"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/tropy"
@@ -31,43 +29,46 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="20dp"
 
-                android:src= "@drawable/trophy" />
-           <LinearLayout
-               android:gravity="center"
-               android:orientation="horizontal"
-               android:layout_marginTop="20dp"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+                android:src="@drawable/trophy" />
 
-               <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
+                <TextView
 
-                   android:textSize="20sp"
-                   android:textStyle="bold"
-                   android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                   android:text="CONGRATULATIONS!"
-                   android:textColor="@color/red" />
-               <ImageView
+                    android:padding="5dp"
+                    android:text="CONGRATULATIONS!"
+                    android:textColor="@color/red"
 
-                   android:src="@drawable/congra"
-                   android:layout_width="50dp"
-                   android:layout_height="50dp"/>
-           </LinearLayout>
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/congra" />
+            </LinearLayout>
+
             <TextView
-                android:textStyle="italic"
                 android:id="@+id/txtScore"
-                android:textSize="20dp"
-                android:layout_marginTop="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="20dp"
                 android:padding="5dp"
-
                 android:text="Your score: 20"
-                android:textColor="@color/purple_500" />
+                android:textColor="@color/purple_500"
+
+                android:textSize="20dp"
+                android:textStyle="italic" />
 
         </LinearLayout>
 
@@ -75,12 +76,12 @@
             android:id="@+id/txtAnswer"
 
 
-            android:textSize="20sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -90,7 +91,7 @@
 
 </ScrollView>
 
-<!--nếu dùng scroll view với constraint layout làm con thì scroll view c phải xét cái thuuocj tính này : fillViewReport = true
+    <!--nếu dùng scroll view với constraint layout làm con thì scroll view c phải xét cái thuuocj tính này : fillViewReport = true
 
-cái đấy để cho cái scroll view nó kéo ra hết màn hình điện thoại khi mà cái con của nó có chiều cao ít hơn
--->
+    cái đấy để cho cái scroll view nó kéo ra hết màn hình điện thoại khi mà cái con của nó có chiều cao ít hơn
+    -->

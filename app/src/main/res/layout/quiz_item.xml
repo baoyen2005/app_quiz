@@ -17,7 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/ground">
+        android:background="@drawable/background3">
 
         <ImageView
             android:id="@+id/quizIcon"
@@ -39,7 +39,7 @@
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="80dp"
             android:gravity="center"
             android:text="ARE YOU READY?\nENTER SPIN TO PLAY!"
             android:textColor="@color/black"
@@ -47,7 +47,7 @@
             app:layout_constraintEnd_toEndOf="parent"
 
 
-            app:layout_constraintHorizontal_bias="0.497"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/quizTitle" />
 

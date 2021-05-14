@@ -11,7 +11,6 @@
         android:paddingStart="32dp"
         android:paddingEnd="32dp"
         android:orientation="vertical"
-        android:gravity="center_vertical"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
@@ -22,64 +21,66 @@
         <TextView
 
             style="@style/TextAppearance.AppCompat.Title"
-
+            android:layout_marginTop="90dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LOGIN NOW!"
             android:textColor="#ff00" />
 
+
         <TextView
 
             style="@style/TextAppearance.AppCompat.Body1"
-            android:fontFamily="cursive"
-            android:textSize="16sp"
             android:layout_width="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:text="Please login to continue!" />
+            android:layout_marginTop="10dp"
+            android:text="Please login to continue!"
+            android:textSize="16sp"
+            android:textStyle="italic" />
 
         <EditText
-            android:background="@drawable/edit_text_background"
             android:id="@+id/edtEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:textSize="16sp"
-            android:hint="email"
-            android:textColor="@color/black"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/edit_text_background"
             android:ems="10"
-            android:inputType="textEmailAddress" />
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <EditText
-            android:background="@drawable/edit_text_background"
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:textSize="16sp"
-            android:hint="password"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_background"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:hint="password"
+            android:inputType="textPassword"
+            android:textSize="16sp" />
 
         <Button
-            android:layout_gravity="center"
             android:id="@+id/btnLogin"
-            android:layout_marginTop="24dp"
-            app:backgroundTint = "@null"
-            android:textColor="#FF008C"
-            android:background="@drawable/btn_primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/btn_primary"
+            android:text="Login"
+            android:textColor="#FF008C"
+            app:backgroundTint="@null" />
 
         <TextView
-            android:textColor="#0E00D4"
             android:id="@+id/txtSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Dont have an account? Sigup"
             android:textAlignment="center"
-            android:layout_marginTop="24dp"
-            android:text="Dont have an account? Sigup" />
+            android:textColor="#0E00D4" />
+
     </LinearLayout>
 
     <ImageView

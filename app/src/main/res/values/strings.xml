@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">App_Quiz</string>
+    <string name="app_name">Quiz</string>
+    <string name="latitudeBabel">Latitude</string>
+    <string name="longitudeBabel">Longitude</string>
 </resources>

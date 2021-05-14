@@ -14,6 +14,8 @@ class LoginIntro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login__intro)
 
+        // cái này dể làm j z bạn - à nó kiêu như welcome ý
+
         val auth = FirebaseAuth.getInstance()
         if(auth.currentUser != null){
             Toast.makeText(this,"User is already logged in!",Toast.LENGTH_SHORT).show()

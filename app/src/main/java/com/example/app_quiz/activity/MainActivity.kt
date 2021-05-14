@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.*;
 
-class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     lateinit var adapter: QuizAdapter
@@ -36,11 +36,10 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        navigationView.setNavigationItemSelectedListener  (this)
+        navigationView.setNavigationItemSelectedListener(this)
         setUpView()
 
     }
-
 
 
     private fun setUpView() {
@@ -52,14 +51,9 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
     }
 
 
-
     private fun setUpFireStore() {
 
 
-
-        /*
-        đây c ơi, chỗ này bị lỗi này, t k hiểu sao lỗi, debug nó báo null ở đây này
-         */
         fireStore = FirebaseFirestore.getInstance() // firebase: null
         val collectionReference = fireStore.collection("quiz")
 
@@ -72,16 +66,15 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
             Log.d("DATA", value.toObjects(Quiz::class.java).toString());
             quizList.clear()
-            quizList.addAll(value.toObjects(Quiz::class.java)) // vào đây thì debug ko chạy tiếp được nữa
+            quizList.addAll(value.toObjects(Quiz::class.java))
             adapter.notifyDataSetChanged()
 
         }
 
-        //nó sinh ra ntn nhỉ
-        // hay là do mặc định của kotlin về cái đó
-        // t k hiểu cái addSnapshotListenner b ạ// nó là lệnh mặc định r
-       //oke tạm hieeir đoạn này là để lấy dữ liệu về đi
-        //chả thấy chỗ nó đẩy lên đâu - bài này chưa xogn đâu bạn ạ :(
+
+
+        //oke tạm hieeir đoạn này là để lấy dữ liệu về đi
+
 
     }
 
@@ -93,8 +86,9 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
     private fun setUpDrawerLayout() {
         setSupportActionBar(appBar) // thanh công cụ
-        actionBarDrawerToggle = ActionBarDrawerToggle(this,
-                mainDrawer, R.string.app_name, R.string.app_name
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this,
+            mainDrawer, R.string.app_name, R.string.app_name
         )
         actionBarDrawerToggle.syncState()
 //       navigationView.setOnClickListener(){
@@ -118,20 +112,44 @@ class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelect
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         firebaseAuth = FirebaseAuth.getInstance()
-        when(item.itemId){
+        when (item.itemId) {
             R.id.btnOut -> {
 
-                    FirebaseAuth.getInstance().signOut()
-                    val intent = Intent(this, LoginIntro::class.java)
-                    startActivity(intent)
+                FirebaseAuth.getInstance().signOut()
+                Toast.makeText(this, "You are logged out!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, LoginIntro::class.java)
+                startActivity(intent)
 
 
             }
+            R.id.btnProfile -> {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+            }
             R.id.btnRateUs -> {
-                
+
+                val intent = Intent(this, RateStarActivity::class.java)
+                startActivity(intent)
+
             }
         }
         mainDrawer.closeDrawers()
         return true
+    }
+
+    private fun login() {
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+
+        if (user == null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        login()
     }
 }

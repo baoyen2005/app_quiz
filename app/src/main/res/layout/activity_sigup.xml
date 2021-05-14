@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-
+            android:layout_marginTop="70dp"
             style="@style/TextAppearance.AppCompat.Title"
             android:textColor="#ff00"
             android:layout_width="match_parent"
@@ -33,16 +33,37 @@
             android:layout_width="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:fontFamily="cursive"
+            android:textStyle="italic"
             android:text="Please, enter your email address and password\nto get access to your account!" />
+        <EditText
+            android:id="@+id/edtUsernamesignup"
+            android:background="@drawable/edit_text_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:hint="user name" />
+        <EditText
+            android:id="@+id/edtIDSignUp"
+            android:background="@drawable/edit_text_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
 
+            android:ems="10"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:hint="student code" />
         <EditText
             android:textColor="@color/black"
             android:background="@drawable/edit_text_background"
             android:id="@+id/edtEmailSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:textSize="16sp"
             android:hint="email"
             android:ems="10"
@@ -54,7 +75,7 @@
             android:id="@+id/etPasswordSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:textSize="16sp"
             android:hint="password"
             android:ems="10"
@@ -65,7 +86,7 @@
             android:id="@+id/etCofirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="20dp"
             android:textSize="16sp"
             android:hint="Confirm password"
             android:ems="10"
@@ -73,7 +94,7 @@
 
         <Button
             android:id="@+id/btnSignUp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="30dp"
             app:backgroundTint = "@null"
             android:textColor="#FF008C"
             android:layout_gravity="center"

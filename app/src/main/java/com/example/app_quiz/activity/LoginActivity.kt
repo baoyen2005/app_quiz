@@ -46,11 +46,9 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
-
                 }
                 else{
                     Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
-
                 }
             }
     }

@@ -9,20 +9,11 @@
     <LinearLayout
         android:background="@drawable/quizback"
         android:orientation="vertical"
+
         android:id="@+id/profile_header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_gravity="center"
-            android:id="@+id/txtEmail"
-            android:textSize="20dp"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="lsls" />
 
         <ImageView
 
@@ -30,9 +21,49 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="100dp"
             android:background="@color/green"
             android:src="@drawable/profile" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/txtEmail"
+            android:textSize="20dp"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+
+            android:text="lsls" />
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/txtname"
+            android:textSize="20dp"
+            android:layout_marginStart="15dp"
+
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+
+            android:text="lsls" />
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/txtcode"
+            android:textSize="20dp"
+            android:layout_marginStart="15dp"
+
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+
+            android:text="lsls" />
+
     </LinearLayout>
 
     <Button

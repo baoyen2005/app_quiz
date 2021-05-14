@@ -1,5 +1,6 @@
 package com.example.app_quiz.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -9,25 +10,32 @@ import android.util.Log
 import com.example.app_quiz.R
 
 import com.example.app_quiz.models.Quiz
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_profile.*
 import kotlinx.android.synthetic.main.activity_result.*
 
+@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class ResultActivity : AppCompatActivity() {
-    lateinit var  quiz : Quiz
+    lateinit var quiz: Quiz
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
         setUpView()
+
         scrollView.setOnClickListener {
-            val intent = Intent(this, EndActivity::class.java )
+            val intent = Intent(this, RankingActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
     private fun setUpView() {
-        val quizData  = intent.extras?.getString("quiz")
+        val quizData = intent.extras?.getString("quiz")
         //Converting from JSON String to a Data Class
-        quiz = Gson().fromJson<Quiz>(quizData,Quiz::class.java)
+        quiz = Gson().fromJson<Quiz>(quizData, Quiz::class.java)
         calculateScore()
         setAnswerView()
     }
@@ -41,27 +49,64 @@ class ResultActivity : AppCompatActivity() {
             //Thẻ <br>: xuống dòng trong văn bản.
             //<b></b>, <strong></strong>: im đậm chữ.
             builder.append("<font color'#F44336'><b>Question: ${question.description}</b></font><br/><br/>")
-            builder.append("<font color='#76FF03'>Answer: ${question.answers}</font><br/><br/>")
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                //FROM_HTML_MODE_COMPACT  Phân tách các phần tử cấp khối bằng dấu ngắt dòng (một ký tự dòng mới) ở giữa.
-                txtAnswer.text = Html.fromHtml(builder.toString(), Html.FROM_HTML_MODE_COMPACT);
-            } else {
-                txtAnswer.text = Html.fromHtml(builder.toString());
-            }
+            builder.append("<font color='#2962FF'>+ Answer: ${question.answers}</font><br/><br/>")
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            //FROM_HTML_MODE_COMPACT  Phân tách các phần tử cấp khối bằng dấu ngắt dòng (một ký tự dòng mới) ở giữa.
+            txtAnswer.text = Html.fromHtml(builder.toString(), Html.FROM_HTML_MODE_COMPACT);
+        } else {
+            txtAnswer.text = Html.fromHtml(builder.toString());
+        }
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun calculateScore() {
-        var score  = 0
+        var score = 0
 
-        for(entry  in quiz.questions.entries){
-            val question  = entry.value
-            if(question.answers == question.userAnswer){
+        for (entry in quiz.questions.entries) {
+            val question = entry.value
+            if (question.answers == question.userAnswer) {
                 score += 10
             }
         }
         txtScore.text = "Your Score : $score"
-        Log.d("diem",score.toString())
+        Log.d("diem", score.toString())
+
+        //đây
+        pushScore(score)
+
+    }
+
+    //test
+    private fun pushScore(score: Int) {
+        val firestore = FirebaseFirestore.getInstance()
+        val auth: FirebaseAuth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        var name: String = "" // varr no cho sua bien val vs car tjof cái nào đúng
+        firestore.collection("user").document(user.uid).get()
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    name = "" + it.result.get("name").toString()
+                    val map = hashMapOf(
+                        "userName" to name,
+                        "yourScore" to score,
+                    )
+                    if (user != null) { // còn chỗ này đang null tại chưa login
+                        firestore.collection("score")
+                            .document(user.uid)
+                            .set(map)
+                            .addOnCompleteListener {
+                                Log.d(
+                                    "TAG",
+                                    "DocumentSnapshot successfully written!"
+                                )
+                            }
+                    } else {
+                        Log.d("TAG", "pushScore: Null")
+                    }
+                }
+            }
+
     }
 }
