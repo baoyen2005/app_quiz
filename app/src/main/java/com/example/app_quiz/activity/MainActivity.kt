@@ -71,11 +71,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         }
 
-
-
-        //oke tạm hieeir đoạn này là để lấy dữ liệu về đi
-
-
     }
 
     private fun setUpRecycleView() {

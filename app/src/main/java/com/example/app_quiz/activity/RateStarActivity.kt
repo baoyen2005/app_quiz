@@ -17,6 +17,7 @@ class RateStarActivity : AppCompatActivity(), RatingBar.OnRatingBarChangeListene
            Toast.makeText(this,"I give it! Thankiu you for rate us!", Toast.LENGTH_SHORT).show()
            val intent = Intent(this, MainActivity::class.java)
            startActivity(intent)
+            finish()
        }
     }
     override fun onRatingChanged(p0: RatingBar?, p1: Float, p2: Boolean) {

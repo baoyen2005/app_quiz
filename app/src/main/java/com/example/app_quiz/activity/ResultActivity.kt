@@ -25,7 +25,7 @@ class ResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_result)
         setUpView()
 
-        scrollView.setOnClickListener {
+        btnRank.setOnClickListener {
             val intent = Intent(this, RankingActivity::class.java)
             startActivity(intent)
             finish()
@@ -42,14 +42,16 @@ class ResultActivity : AppCompatActivity() {
 
     private fun setAnswerView() {
         val builder = StringBuilder("")
+        var ind = 0
         for (entry in quiz.questions.entries) {
+            ind++
             val question = entry.value
             // noi chuỗi
             //<font></font>: dùng để thay đổi  màu chữ.
             //Thẻ <br>: xuống dòng trong văn bản.
             //<b></b>, <strong></strong>: im đậm chữ.
-            builder.append("<font color'#F44336'><b>Question: ${question.description}</b></font><br/><br/>")
-            builder.append("<font color='#2962FF'>+ Answer: ${question.answers}</font><br/><br/>")
+            builder.append("<font color'#FF000000'><b>- Question $ind: ${question.description}</b></font><br/><br/>")
+            builder.append("<font color='#F44336'>+ Answer $ind: ${question.answers}</font><br/><br/>")
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             //FROM_HTML_MODE_COMPACT  Phân tách các phần tử cấp khối bằng dấu ngắt dòng (một ký tự dòng mới) ở giữa.

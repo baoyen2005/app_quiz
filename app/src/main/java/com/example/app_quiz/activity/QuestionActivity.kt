@@ -47,9 +47,6 @@ class QuestionActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 questionTime.cancel()
-
-
-
                 index++
                 if (index != questions!!.size + 1) bindViews() //next question
                 else btnSubmit.performClick() //last question
@@ -63,6 +60,7 @@ class QuestionActivity : AppCompatActivity() {
         btnNext.setOnClickListener {
             questionTime.cancel()
             index++
+
             bindViews()
         }
         btnSubmit.setOnClickListener {
@@ -80,7 +78,6 @@ class QuestionActivity : AppCompatActivity() {
     private fun setUpFirestore() {
 
         val firestore = FirebaseFirestore.getInstance()
-
         if (type == "questions") {
             Log.d("QsActivity", type)
             firestore.collection("quiz").whereEqualTo("title", "questions")
@@ -136,7 +133,7 @@ class QuestionActivity : AppCompatActivity() {
             optionList.setHasFixedSize(true)
 
         }
-
+        txtquestion.text = index.toString() +"/"+ questions!!.size.toString()
         questionTime.start()
     }
 

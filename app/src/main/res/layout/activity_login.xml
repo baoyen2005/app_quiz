@@ -25,12 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LOGIN NOW!"
-            android:textColor="#ff00" />
+            android:textColor="@color/black" />
 
 
         <TextView
 
-            style="@style/TextAppearance.AppCompat.Body1"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -67,19 +67,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:background="@drawable/btn_primary"
             android:text="Login"
-            android:textColor="#FF008C"
+            android:textSize="20sp"
+            android:background="@drawable/button_signin_signup"
+            android:textColor="#FFFF"
             app:backgroundTint="@null" />
 
         <TextView
             android:id="@+id/txtSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Dont have an account? Sigup"
+            android:layout_marginTop="40dp"
+            android:textSize="16sp"
+            android:textColor="#0E00D4"
+            android:text="Dont have an account? SIGN UP"
             android:textAlignment="center"
-            android:textColor="#0E00D4" />
+            />
 
     </LinearLayout>
 

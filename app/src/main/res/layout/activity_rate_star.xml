@@ -28,7 +28,7 @@
         android:text="Please, rate us!\nLet me know how satisfied you are with this app! "
         android:textColor="@color/black"
         android:textSize="20sp"
-
+        android:layout_marginStart="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,26 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:id="@+id/linearRank"
+    android:fillViewport="true"
     tools:context=".activity.RankingActivity">
-    <TextView
-        android:id="@+id/txtrank"
-        android:text="RANKING"
-        style="@style/TextAppearance.AppCompat.Widget.ActionMode.Title"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
-        android:textColor="@color/red"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <androidx.recyclerview.widget.RecyclerView
 
-        android:id="@+id/recycleViewRanking"
+    <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/linearRank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtrank"
+                style="@style/TextAppearance.AppCompat.Widget.ActionMode.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:text="RANKING"
+                android:textColor="@color/red"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/recycleViewRanking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearRank" />
+
+        <Button
+            android:id="@+id/btEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/option_item_selected_bg"
+            android:text="End"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycleViewRanking" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

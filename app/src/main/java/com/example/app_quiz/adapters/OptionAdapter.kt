@@ -30,7 +30,7 @@ class OptionAdapter(val context: Context, val question: Question) :
         )
         return optionViewHolder(view)
     }
-//  set giá trị cho mỗi view à b
+
 
     override fun onBindViewHolder(holder: optionViewHolder, position: Int) {
         // ddoanj nay de lam gi nhir?..doan nay de set gia tri len view
@@ -47,7 +47,7 @@ class OptionAdapter(val context: Context, val question: Question) :
             holder.itemView.setBackgroundResource(R.drawable.option_item_bg)
         }
 
-        // để sắp xếp code cho ngay ngắn ấy .. Bấm Ctrl + Alt + L
+
 
 
     }

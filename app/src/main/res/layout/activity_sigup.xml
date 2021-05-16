@@ -1,126 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".activity.LoginActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_marginTop="50dp"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stay Connected" />
+
+            <TextView
 
 
-    <LinearLayout
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Please, enter your email address and password\nto get access to your account!" />
+            <EditText
+                android:id="@+id/edtUsernamesignup"
+                android:background="@drawable/edit_text_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:hint="user name" />
+            <EditText
+                android:id="@+id/edtIDSignUp"
+                android:background="@drawable/edit_text_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
 
-        <TextView
-            android:layout_marginTop="70dp"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:textColor="#ff00"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Stay Connected" />
+                android:ems="10"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:hint="student code" />
+            <EditText
+                android:textColor="@color/black"
+                android:background="@drawable/edit_text_background"
+                android:id="@+id/edtEmailSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:hint="email"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
 
-        <TextView
+            <EditText
+                android:textColor="@color/black"
+                android:background="@drawable/edit_text_background"
+                android:id="@+id/etPasswordSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:hint="password"
+                android:ems="10"
+                android:inputType="textPassword" />
+            <EditText
+                android:textColor="@color/black"
+                android:background="@drawable/edit_text_background"
+                android:id="@+id/etCofirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:hint="Confirm password"
+                android:ems="10"
+                android:inputType="textPassword" />
 
-            style="@style/TextAppearance.AppCompat.Body1"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:textStyle="italic"
-            android:text="Please, enter your email address and password\nto get access to your account!" />
-        <EditText
-            android:id="@+id/edtUsernamesignup"
-            android:background="@drawable/edit_text_background"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:hint="user name" />
-        <EditText
-            android:id="@+id/edtIDSignUp"
-            android:background="@drawable/edit_text_background"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            <Button
+                android:id="@+id/btnSignUp"
+                android:layout_marginTop="30dp"
+                app:backgroundTint = "@null"
+                android:textColor="#FFFFFF"
+                android:layout_gravity="center"
+                android:background="@drawable/button_signin_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Sign up" />
 
-            android:ems="10"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:hint="student code" />
-        <EditText
-            android:textColor="@color/black"
-            android:background="@drawable/edit_text_background"
-            android:id="@+id/edtEmailSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="16sp"
-            android:hint="email"
-            android:ems="10"
-            android:inputType="textEmailAddress" />
+            <TextView
+                android:textColor="#0E00D4"
+                android:id="@+id/txtSIgnIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:layout_marginTop="24dp"
+                android:text="Already have an account?" />
+        </LinearLayout>
 
-        <EditText
-            android:textColor="@color/black"
-            android:background="@drawable/edit_text_background"
-            android:id="@+id/etPasswordSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="16sp"
-            android:hint="password"
-            android:ems="10"
-            android:inputType="textPassword" />
-        <EditText
-            android:textColor="@color/black"
-            android:background="@drawable/edit_text_background"
-            android:id="@+id/etCofirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="16sp"
-            android:hint="Confirm password"
-            android:ems="10"
-            android:inputType="textPassword" />
 
-        <Button
-            android:id="@+id/btnSignUp"
-            android:layout_marginTop="30dp"
-            app:backgroundTint = "@null"
-            android:textColor="#FF008C"
-            android:layout_gravity="center"
-            android:background="@drawable/btn_primary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign up" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:textColor="#0E00D4"
-            android:id="@+id/txtSIgnIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:layout_marginTop="24dp"
-            android:text="Already have an account?" />
-    </LinearLayout>
 
-    <ImageView
 
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_wave"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

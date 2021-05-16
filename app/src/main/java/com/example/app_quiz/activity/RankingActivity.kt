@@ -13,30 +13,22 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_ranking.*
+import kotlinx.android.synthetic.main.activity_rate_star.*
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+
 class RankingActivity : AppCompatActivity() {
 
-    var userList: MutableList<User>? = null
+    var userList = mutableListOf<User>()
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var firebaseUser: FirebaseUser
     lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ranking)
-
         firebaseAuth = FirebaseAuth.getInstance()
-
         firebaseUser = firebaseAuth.currentUser
-
         firestore = FirebaseFirestore.getInstance()
-        var name: String = ""
-        var score: String = ""
-
-        //khoi tao kieu j ta ^^
-
-
-        firestore.collection("user")
+        firestore.collection("score")
             .get().addOnSuccessListener { documents ->
                 if (documents != null) {
                     for (document in documents) {
@@ -44,11 +36,16 @@ class RankingActivity : AppCompatActivity() {
                     }
 
                 }
+                userList.sortByDescending { it.yourScore }
                 billView()
+                // sx theo diem tang dan
+
+                // sx giam
+              //  userList.sortByDescending { it.yourScore }
 
             }
 
-       linearRank.setOnClickListener{
+        btEnd.setOnClickListener{
            val intent = Intent(this, EndActivity::class.java)
            startActivity(intent)
            finish()
